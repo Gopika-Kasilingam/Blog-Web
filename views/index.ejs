@@ -1,0 +1,52 @@
+<header class="header">
+    <a href="/" class="header__logo">NodeJS</a>
+    <nav class="header__nav">
+        <ul>
+            <li>
+                <a href="/" class="<%= isActiveRoute('/',currentRoute) %>">Home</a>
+            </li>
+            <li>
+                <a href="/about" class="<%= isActiveRoute('/about',currentRoute) %>">About</a>
+            </li>
+            <li>
+                <a href="/contact" class="<%= isActiveRoute('/contact',currentRoute) %>">Contact</a>
+            </li>  
+        </ul>
+    </nav>
+
+</header>
+<div class="header__button">
+    <a href="/logout" style="color:gray">
+      Logout
+    </a>
+</div>
+
+<div class="author">
+    <br><p> This is a blog website for reading and
+        writing posts using HTML, CSS, Node.js
+        and MongoDB for data storage</p><br><br>
+    <h1 class="author__heading">Hi I am Gopika.K</h1>
+    <p class="author__body">Learning Full Stack Web Development.</p><br>
+</div>
+
+<img src="https://thumbs.dreamstime.com/b/blog-information-website-concept-workplace-background-text-view-above-127465079.jpg" class="blog-image" align="center">
+<br>
+<section class="articles">
+    
+    <h2 class="articles__heading"><b>Latest Posts</b></h2>
+    
+    <ul class="articles-ul">
+        <% data.forEach(post => { %>
+        <li>
+            <a href="/post/<%= post._id %>">
+                <span><%= post.title %></span>
+                <span class="articles-list__date"><%= post.createdAt.toDateString() %></span>
+            </a>
+        </li>
+        <% }) %>
+    </ul>
+    <!--<% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="h"> View Older Posts</a>
+    <% } %> -->  
+    <h2 align="center" class="h" style="font-size:25px"> To access all posts, add, remove or update them, <br>press <a href="/dashboard" class="dash" style="font-size:30px"><b>Dashboard</b></a></h2>
+</section>

@@ -1,0 +1,20 @@
+<br><br><br>
+<div class="admin-title">
+  <h2 style="font-size: 30px; text-indent:400px">View / Edit Post</h2><br>
+
+  <form action="/delete-post/<%= data._id %>?_method=DELETE" method="POST">
+    <input type="submit" value="Delete" class="btn-delete btn" style="font-size: 18px;">
+  </form>
+
+</div><br><br>
+
+<form action="/edit-post/<%= data._id %>?_method=PUT" method="POST">
+
+  <label for="title" style="font-size: 25px;"><b>Title</b></label>
+  <input type="text" placeholder="Post Title" name="title" style="font-size: 20px;" value="<%= data.title %>"><br>
+
+  <label for="body" style="font-size: 25px;"><b>Content</b></label>
+  <textarea name="body" style="font-size: 20px;" cols="50" rows="10"><%= data.body %></textarea>
+
+  <input type="submit" value="Update" class="btn" style="font-size: 18px;">
+</form>

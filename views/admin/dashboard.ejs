@@ -1,0 +1,32 @@
+<a href="/" style="color:gray">Home</a>
+<h1 style="text-align:center; font-size: 40px;">Dashboard</h1>
+<br><br>
+<img src="https://cgscomputer.com/wp-content/uploads/2020/05/blog-1024x682.jpg" width="100%" height="400px">
+<br><br><br><br>
+
+<div class="admin-title">
+  <h2 style="font-size: 30px;">Posts</h2>
+  <a href="/add-post" class="button" style="font-size: 25px;">+ Add New</a>
+</div>
+<br><br>
+<ul class="admin-posts" >
+
+  <% data.forEach(post => { %>
+   
+    <li>
+      <a href="/post/<%= post._id %>" style="font-size: 23px;">
+        <%= post.title %> 
+      </a>
+      <div class="admin-post-controls" >
+        <a href="/edit-post/<%= post._id %>" class="btn" style="font-size: 18px;">Edit</a>
+
+        <form action="/delete-post/<%= post._id %>?_method=DELETE" method="POST">
+          <input type="submit" value="Delete" class="btn-delete btn" style="font-size: 18px;">
+        </form>
+
+      </div>
+
+    </li>
+
+  <% }) %>
+</ul>
